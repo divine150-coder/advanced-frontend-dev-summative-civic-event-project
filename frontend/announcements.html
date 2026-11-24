@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Announcements · CivicEvents</title>
+  <meta name="description" content="CivicEvents — accessible city events and services portal.">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col" data-access="user" data-page="announcements">
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div id="app-header"></div>
+  <main id="main" tabindex="-1" class="flex-1 w-full max-w-6xl mx-auto px-4 py-8">
+    <div class="flex flex-wrap items-end justify-between gap-3 mb-6">
+      <div><h1 class="text-3xl font-extrabold">Announcements</h1><p class="text-slate-700">Audio updates from the city.</p></div>
+      <div id="admin-actions" class="hidden"><a class="btn-primary" href="announcement-form.html">+ New announcement</a></div>
+    </div>
+    <div id="ann-grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite"></div>
+  </main>
+  <div id="app-footer"></div>
+  <div id="toast-region" class="fixed bottom-4 right-4 z-[70] flex flex-col gap-2 max-w-sm" aria-live="polite"></div>
+  <script src="js/vendor/jquery-3.7.1.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/registrations.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/pages/announcements.js"></script>
+</body>
+</html>
