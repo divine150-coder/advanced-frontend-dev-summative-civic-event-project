@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Promo form · CivicEvents</title>
+  <meta name="description" content="CivicEvents — accessible city events and services portal.">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col" data-access="admin" data-page="promo-form">
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div id="app-header"></div>
+  <main id="main" tabindex="-1" class="flex-1 w-full max-w-6xl mx-auto px-4 py-8">
+    <div id="form-wrap" class="max-w-2xl mx-auto card p-6 sm:p-8">
+      <a href="promos.html" class="text-green-800 underline text-sm">← Back to promos</a>
+      <h1 id="form-title" class="text-2xl font-extrabold mt-2">New promo</h1>
+      <form id="promo-form" class="mt-5 space-y-4" novalidate>
+        <div><label for="title" class="label">Title</label><input id="title" name="title" type="text" class="field" required/></div>
+        <div><label for="description" class="label">Description</label><textarea id="description" rows="3" class="field" required></textarea></div>
+        <div><label for="video" class="label">Video file</label>
+          <input id="video" type="file" accept=".mp4,.mov,.avi,.mkv" class="field bg-white" aria-describedby="video-hint"/>
+          <p id="video-hint" class="text-xs text-slate-600 mt-1">MP4, MOV, AVI or MKV, up to 8 MB. (MP4 plays in every browser.)</p>
+          <video id="video-preview" controls muted preload="metadata" class="hidden mt-3 w-full max-h-64 rounded-lg bg-black"></video></div>
+        <div><label for="caption_text" class="label">Caption text / transcript (required)</label><textarea id="caption_text" rows="5" class="field" aria-describedby="cap-hint" required></textarea>
+          <p id="cap-hint" class="text-xs text-slate-600 mt-1">Shown as the accessible transcript, and turned into an on-screen caption track (one line = one caption) in the player.</p></div>
+        <div class="flex items-center gap-2"><input id="published" type="checkbox" class="h-4 w-4" checked/><label for="published" class="font-medium">Published</label></div>
+        <div id="progress" class="hidden mt-3" role="progressbar" aria-label="Upload progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="h-2 bg-green-700 rounded transition-all" style="width:0%"></div></div>
+        <div class="flex gap-2"><button id="save-btn" type="submit" class="btn-primary">Save promo</button><a href="promos.html" class="btn-secondary">Cancel</a></div>
+      </form></div>
+  </main>
+  <div id="app-footer"></div>
+  <div id="toast-region" class="fixed bottom-4 right-4 z-[70] flex flex-col gap-2 max-w-sm" aria-live="polite"></div>
+  <script src="js/vendor/jquery-3.7.1.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/registrations.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/pages/promo-form.js"></script>
+</body>
+</html>
