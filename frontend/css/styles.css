@@ -1,0 +1,48 @@
+/* Small layer on top of Tailwind (CDN): reusable button/field classes, skeletons, a11y helpers. */
+
+.skip-link { position: absolute; left: -9999px; top: 0; background: #052e16; color: #fff; padding: .75rem 1rem; z-index: 100; }
+.skip-link:focus { left: 0; }
+
+:focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
+.focus-ring:focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
+
+.btn-primary, .btn-secondary, .btn-danger {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  padding: .5rem .9rem; border-radius: .5rem; font-weight: 600; font-size: .9rem;
+  cursor: pointer; transition: background-color .15s, transform .05s; text-decoration: none; border: 1px solid transparent;
+}
+.btn-primary { background: #166534; color: #fff; }               /* green-800 on white: 7.1:1 */
+.btn-primary:hover { background: #14532d; }
+.btn-secondary { background: #fff; color: #1e293b; border-color: #94a3b8; }
+.btn-secondary:hover { background: #f1f5f9; }
+.btn-danger { background: #1c1917; color: #fff; }                 /* stone-900 on white: 17:1 */
+.btn-danger:hover { background: #0c0a09; }
+.btn-primary:active, .btn-secondary:active, .btn-danger:active { transform: translateY(1px); }
+button:disabled { opacity: .55; cursor: not-allowed; }
+
+.field { display: block; width: 100%; border: 1px solid #64748b; border-radius: .5rem; padding: .55rem .75rem; background: #fff; }
+.label { display: block; font-weight: 600; margin-bottom: .25rem; font-size: .9rem; color: #1e293b; }
+.card { background: #fff; border: 1px solid #e2e8f0; border-radius: .75rem; }
+
+.skeleton { background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 37%, #e2e8f0 63%); background-size: 400% 100%; animation: shimmer 1.4s ease infinite; }
+@keyframes shimmer { 0% { background-position: 100% 50%; } 100% { background-position: 0 50%; } }
+
+.drawer { transform: translateX(100%); transition: transform .25s ease; }
+.drawer.open { transform: translateX(0); }
+.toast { animation: toast-in .2s ease; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.badge { display: inline-block; font-size: .72rem; font-weight: 700; padding: .1rem .5rem; border-radius: 999px; }
+
+/* Star rating (radio group) */
+/* Inputs are rendered 5..1 and the row is reversed so "fill previous siblings" works with CSS only. */
+.stars-row input { position: absolute; opacity: 0; }
+.stars-row label { cursor: pointer; font-size: 1.75rem; color: #94a3b8; padding: 0 .1rem; }
+.stars-row { display: inline-flex; flex-direction: row-reverse; justify-content: flex-end; }
+.stars-row input:checked ~ label, .stars-row label:hover, .stars-row label:hover ~ label { color: #b45309; }
+.stars-row input:focus-visible + label { outline: 3px solid #f59e0b; border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton, .toast { animation: none; }
+  .drawer { transition: none; }
+}
