@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in · CivicEvents</title>
+  <meta name="description" content="CivicEvents — accessible city events and services portal.">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col" data-access="guest" data-page="login">
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div id="app-header"></div>
+  <main id="main" tabindex="-1" class="flex-1 w-full max-w-6xl mx-auto px-4 py-8">
+    <div class="max-w-md mx-auto card p-6 sm:p-8">
+      <h1 class="text-2xl font-extrabold">Log in</h1>
+      <p class="text-slate-700 mt-1">Welcome back to CivicEvents.</p>
+      <div id="form-error" class="hidden mt-4 bg-red-50 border border-red-300 text-red-900 rounded-lg p-3 text-sm" role="alert"></div>
+
+      <form id="login-form" class="mt-5 space-y-4" novalidate>
+        <div><label for="email" class="label">Email</label><input id="email" name="email" type="email" class="field" autocomplete="email" required/></div>
+        <div><label for="password" class="label">Password</label>
+          <div class="flex gap-2"><input id="password" type="password" class="field" autocomplete="current-password" required/>
+          <button type="button" id="toggle-pw" class="btn-secondary" aria-pressed="false" aria-controls="password">Show</button></div></div>
+        <div class="flex items-start gap-2"><input id="remember" type="checkbox" class="mt-1 h-4 w-4"/>
+          <label for="remember" class="text-sm">Keep me signed in on this device<br><span class="text-xs text-slate-600">Uses persistent storage — only tick this on a device you trust.</span></label></div>
+        <button id="login-submit" type="submit" class="btn-primary w-full">Log in</button>
+      </form>
+      <p class="mt-5 text-sm">New here? <a class="text-green-800 underline font-semibold" href="signup.html">Create an account</a></p>
+    </div>
+  </main>
+  <div id="app-footer"></div>
+  <div id="toast-region" class="fixed bottom-4 right-4 z-[70] flex flex-col gap-2 max-w-sm" aria-live="polite"></div>
+  <script src="js/vendor/jquery-3.7.1.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/registrations.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/pages/login.js"></script>
+</body>
+</html>
