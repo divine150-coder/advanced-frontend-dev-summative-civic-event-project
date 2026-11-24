@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notifications · CivicEvents</title>
+  <meta name="description" content="CivicEvents — accessible city events and services portal.">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col" data-access="user" data-page="notifications">
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div id="app-header"></div>
+  <main id="main" tabindex="-1" class="flex-1 w-full max-w-6xl mx-auto px-4 py-8">
+    <div class="flex flex-wrap items-end justify-between gap-3 mb-4">
+      <div><h1 class="text-3xl font-extrabold">Notifications</h1><p class="text-slate-700" id="unread-total" aria-live="polite"></p></div>
+      <div class="flex gap-2" role="group" aria-label="Filter notifications">
+        <button type="button" id="filter-all" class="btn-secondary" aria-pressed="true">All</button>
+        <button type="button" id="filter-unread" class="btn-secondary" aria-pressed="false">Unread</button></div>
+    </div>
+    <ul id="inbox-list" class="card overflow-hidden" aria-live="polite"></ul>
+
+    <p id="admin-panel" class="hidden mt-6 text-sm text-slate-700 card p-4">Admin: notifications are created automatically when an event, announcement or promo is added. Use the <strong>Delete</strong> button beside a notification to remove it for everyone.</p>
+  </main>
+  <div id="app-footer"></div>
+  <div id="toast-region" class="fixed bottom-4 right-4 z-[70] flex flex-col gap-2 max-w-sm" aria-live="polite"></div>
+  <script src="js/vendor/jquery-3.7.1.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/registrations.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/pages/notifications.js"></script>
+</body>
+</html>
