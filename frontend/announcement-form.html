@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Announcement form · CivicEvents</title>
+  <meta name="description" content="CivicEvents — accessible city events and services portal.">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col" data-access="admin" data-page="announcement-form">
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div id="app-header"></div>
+  <main id="main" tabindex="-1" class="flex-1 w-full max-w-6xl mx-auto px-4 py-8">
+    <div id="form-wrap" class="max-w-2xl mx-auto card p-6 sm:p-8">
+      <a href="announcements.html" class="text-green-800 underline text-sm">← Back to announcements</a>
+      <h1 id="form-title" class="text-2xl font-extrabold mt-2">New announcement</h1>
+      <form id="ann-form" class="mt-5 space-y-4" novalidate>
+        <div><label for="title" class="label">Title</label><input id="title" name="title" type="text" class="field" required/></div>
+        <div id="audio-group"><label for="audio" class="label">Audio file</label>
+          <input id="audio" type="file" accept=".mp3,.wav,.m4a,.ogg" class="field bg-white" aria-describedby="audio-hint"/>
+          <p id="audio-hint" class="text-xs text-slate-600 mt-1"><span id="audio-hint-text">MP3, WAV, M4A or OGG, up to 5 MB.</span> <span id="audio-info"></span></p>
+          <audio id="audio-preview" controls class="hidden mt-3 w-full">Audio preview not supported.</audio></div>
+        <div class="flex items-center gap-2"><input id="published" type="checkbox" class="h-4 w-4" checked/><label for="published" class="font-medium">Published</label></div>
+        <div id="progress" class="hidden mt-3" role="progressbar" aria-label="Upload progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="h-2 bg-green-700 rounded transition-all" style="width:0%"></div></div>
+        <div class="flex gap-2"><button id="save-btn" type="submit" class="btn-primary">Save announcement</button><a href="announcements.html" class="btn-secondary">Cancel</a></div>
+      </form></div>
+  </main>
+  <div id="app-footer"></div>
+  <div id="toast-region" class="fixed bottom-4 right-4 z-[70] flex flex-col gap-2 max-w-sm" aria-live="polite"></div>
+  <script src="js/vendor/jquery-3.7.1.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/registrations.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/pages/announcement-form.js"></script>
+</body>
+</html>
